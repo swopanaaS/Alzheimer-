@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Prediction</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="number"] {
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alzheimer's Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="BMI">BMI:</label>
+                <input type="number" step="any" name="BMI" required>
+            </div>
+            <div class="form-group">
+                <label for="AlcoholConsumption">Alcohol Consumption:</label>
+                <input type="number" step="any" name="AlcoholConsumption" required>
+            </div>
+            <div class="form-group">
+                <label for="PhysicalActivity">Physical Activity:</label>
+                <input type="number" step="any" name="PhysicalActivity" required>
+            </div>
+            <div class="form-group">
+                <label for="DietQuality">Diet Quality:</label>
+                <input type="number" step="any" name="DietQuality" required>
+            </div>
+            <div class="form-group">
+                <label for="SleepQuality">Sleep Quality:</label>
+                <input type="number" step="any" name="SleepQuality" required>
+            </div>
+            <div class="form-group">
+                <label for="CholesterolTotal">Cholesterol Total:</label>
+                <input type="number" step="any" name="CholesterolTotal" required>
+            </div>
+            <div class="form-group">
+                <label for="CholesterolLDL">Cholesterol LDL:</label>
+                <input type="number" step="any" name="CholesterolLDL" required>
+            </div>
+            <div class="form-group">
+                <label for="CholesterolHDL">Cholesterol HDL:</label>
+                <input type="number" step="any" name="CholesterolHDL" required>
+            </div>
+            <div class="form-group">
+                <label for="CholesterolTriglycerides">Cholesterol Triglycerides:</label>
+                <input type="number" step="any" name="CholesterolTriglycerides" required>
+            </div>
+            <div class="form-group">
+                <label for="MMSE">MMSE:</label>
+                <input type="number" step="any" name="MMSE" required>
+            </div>
+            <div class="form-group">
+                <label for="FunctionalAssessment">Functional Assessment:</label>
+                <input type="number" step="any" name="FunctionalAssessment" required>
+            </div>
+            <div class="form-group">
+                <label for="MemoryComplaints">Memory Complaints:</label>
+                <input type="number" step="any" name="MemoryComplaints" required>
+            </div>
+            <div class="form-group">
+                <label for="BehavioralProblems">Behavioral Problems:</label>
+                <input type="number" step="any" name="BehavioralProblems" required>
+            </div>
+            <div class="form-group">
+                <label for="ADL">ADL:</label>
+                <input type="number" step="any" name="ADL" required>
+            </div>
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
